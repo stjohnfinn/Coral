@@ -4,4 +4,4 @@
   become: yes
   roles:
     - dotfiles
-    - packages
+    - software

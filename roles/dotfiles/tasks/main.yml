@@ -1,0 +1,10 @@
+---
+
+- name: Install home directory configuration files
+  copy:
+    src: "{{ item }}"
+    dest: ~/
+  loop:
+    - .bashrc
+    - .inputrc
+    - .vimrc

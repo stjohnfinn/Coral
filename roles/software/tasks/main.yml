@@ -1,0 +1,15 @@
+---
+
+- name: Install yum packages
+  dnf:
+    state: present
+    name:
+      - bat
+      - htop
+      - NetworkManager
+      - NetworkManager-tui
+      - vim
+      - git
+      - ncdu
+      - tldr
+      - golang
