@@ -1,0 +1,9 @@
+---
+
+- name: Install python-related packages
+  dnf:
+    state: present
+    name:
+      - python
+      - python-launcher
+      - python-notebook
