@@ -6,4 +6,8 @@
     name:
       - python
       - python-launcher
-      - python-notebook
+
+- name: Install Jupyter Notebook
+  pip:
+    name: jupyter-notebook
+    state: present

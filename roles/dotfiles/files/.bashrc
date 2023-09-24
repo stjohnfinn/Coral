@@ -15,3 +15,6 @@ shopt -s checkwinsize
 shopt -s histappend
 PROMPT_COMMAND='history -a'
 export EDITOR=vim
+
+# for jupyter notebook binaries
+export PATH=$PATH:$HOME/.local/bin
