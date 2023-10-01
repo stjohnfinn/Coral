@@ -1,9 +1,10 @@
 ---
 
-- hosts: localhost
+- hosts: all
   become: yes
   roles:
     - dotfiles
-    - software
+    - packages
     - virtualbox
     - python
+    - user

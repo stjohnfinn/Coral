@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
 
-  config.vm.box = "debian/bookworm64"
+  config.vm.box = "fedora/38-cloud-base"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -25,5 +25,9 @@ Vagrant.configure("2") do |config|
     vb.linked_clone = false
     vb.cpus = 2
     vb.memory = 1024
+  end
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "playbook.yml"
   end
 end

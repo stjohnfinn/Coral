@@ -1,6 +1,6 @@
 ---
 
-- name: Install yum packages
+- name: Install packages
   dnf:
     state: present
     name:
@@ -17,3 +17,4 @@
       - exa
       - feh
       - vagrant
+      - ansible

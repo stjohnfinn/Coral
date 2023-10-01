@@ -3,7 +3,7 @@
 - name: Install home directory configuration files
   copy:
     src: "{{ item }}"
-    dest: ~/
+    dest: /etc/skel
   loop:
     - .bashrc
     - .inputrc

@@ -1,0 +1,11 @@
+---
+
+- name: Add my user
+  user:
+    name: finn
+    comment: Finn St John
+    state: present
+- name: Allow passwordless sudo
+  copy:
+    src: finn
+    dest: /etc/sudoers.d/
