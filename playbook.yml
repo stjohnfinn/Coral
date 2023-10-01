@@ -5,4 +5,5 @@
   roles:
     - dotfiles
     - software
+    - virtualbox
     - python
