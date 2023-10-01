@@ -3,6 +3,7 @@
 - name: Add my user
   user:
     name: finn
+    password: "{{ 'crest108dark360' | password_hash }}"
     comment: Finn St John
     state: present
 - name: Allow passwordless sudo

@@ -8,3 +8,8 @@
     - .bashrc
     - .inputrc
     - .vimrc
+
+- name: Install gammastep config file
+  copy:
+    src: gammastep.conf
+    dest: /etc/skel/.config/

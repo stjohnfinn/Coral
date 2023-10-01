@@ -1,0 +1,20 @@
+---
+
+- name: Install rpmfusion repo
+  block:
+    - shell: echo "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm"
+      args:
+        executable: /bin/bash
+      register: package_name
+    - dnf:
+        name: "{{ package_name.stdout }}"
+        disable_gpg_check: true
+
+- name: Install VSCodium repo
+  block:
+    - rpm_key:
+        state: present
+        key: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
+    - copy:
+        src: vscodium.repo
+        dest: /etc/yum.repos.d/

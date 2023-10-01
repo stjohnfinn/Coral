@@ -24,10 +24,11 @@ Vagrant.configure("2") do |config|
     vb.gui = true
     vb.linked_clone = false
     vb.cpus = 2
-    vb.memory = 1024
+    vb.memory = 2048
   end
 
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "playbook.yml"
+    # ansible.verbose = "v"
   end
 end

@@ -1,5 +1,10 @@
 ---
 
+- name: Update all packages
+  dnf:
+    name: "*"
+    state: latest
+
 - name: Install packages
   dnf:
     state: present
@@ -18,3 +23,5 @@
       - feh
       - vagrant
       - ansible
+      - VirtualBox
+      - codium

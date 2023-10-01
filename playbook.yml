@@ -3,8 +3,10 @@
 - hosts: all
   become: yes
   roles:
+    - hostname
+    - repositories
     - dotfiles
     - packages
-    - virtualbox
     - python
     - user
+    - visual
