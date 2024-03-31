@@ -2,12 +2,33 @@
 
 - name: Install cursor theme (MacOS Big Sur)
   block:
+    - name: Create directory
+      file:
+        path: /etc/skel/.local/share/icons
+        state: directory
     - name: Extract the archive into /etc/skel
       unarchive:
-        src: /tmp/macOS-BigSur.tar.gz
+        src: macOS-BigSur.tar.gz
         dest: /etc/skel/.local/share/icons/
-    - name: Activate the theme
-      dconf:
-        key: /org/gnome/desktop/interface/cursor-theme
-        value: macOS-BigSur
-        state: present
+    - name: Install dependencies
+      dnf:
+        name:
+          - dbus-tools
+          - dbus-daemon
+          - dconf
+          - cairo
+          - cairo-devel
+          - pkg-config
+          - python3-devel
+    - name: Install dconf module Python libraries
+      pip:
+        name:
+          - psutil
+          - pycairo
+          # - PyGObject
+    # TODO: fix this
+    # - name: Activate the theme
+    #   dconf:
+    #     key: "/org/gnome/desktop/interface/cursor-theme"
+    #     value: "a"
+    #     state: present

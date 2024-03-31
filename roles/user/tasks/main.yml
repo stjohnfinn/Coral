@@ -1,5 +1,9 @@
 ---
 
+- name: Install pip package for encryption
+  pip:
+    name:
+      - passlib
 - name: Add my user
   user:
     name: finn
