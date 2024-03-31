@@ -1,0 +1,13 @@
+---
+
+- name: Install cursor theme (MacOS Big Sur)
+  block:
+    - name: Extract the archive into /etc/skel
+      unarchive:
+        src: /tmp/macOS-BigSur.tar.gz
+        dest: /etc/skel/.local/share/icons/
+    - name: Activate the theme
+      dconf:
+        key: /org/gnome/desktop/interface/cursor-theme
+        value: macOS-BigSur
+        state: present

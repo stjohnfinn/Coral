@@ -5,7 +5,7 @@
     name: "*"
     state: latest
 
-- name: Install packages
+- name: Install packages i fw
   dnf:
     state: present
     name:
@@ -25,3 +25,40 @@
       - ansible
       - VirtualBox
       - codium
+      - alacritty
+      - task
+      - gnome-extensions-app
+
+- name: Remove packages ion fw
+  dnf:
+    state: absent
+    name:
+      - simple-scan
+      - gnome-software
+      - gnome-calculator
+      - gnome-calendar
+      - gnome-contacts
+      - gnome-maps
+      - gnome-text-editor
+      - gnome-tour
+      - gnome-weather
+      - gnome-disk-utility
+      - gnome-boxes
+      - gnome-photos
+      - gnome-remote-desktop
+      - gnome-connections
+      - gnome-user-docs
+      - gnome-user-share
+      - gnome-backgrounds
+      - gnome-clocks
+      - libreoffice-core
+      - yelp
+      - rhythmbox
+      - cheese
+      - evince
+      - evince-djvu
+      - evince-libs
+      - baobab
+      - eog
+      - gnome-font-viewer
+      - gnome-characters

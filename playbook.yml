@@ -1,6 +1,6 @@
 ---
 
-- hosts: all
+- hosts: localhost 
   become: yes
   roles:
     - hostname
@@ -9,4 +9,4 @@
     - packages
     - python
     - user
-    - visual
+    - desktop 

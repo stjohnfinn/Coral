@@ -9,7 +9,10 @@
     - .inputrc
     - .vimrc
 
-- name: Install gammastep config file
+- name: Install XDG_CONFIG_DIR files or whatever 
   copy:
-    src: gammastep.conf
+    src: "{{ item }}"
     dest: /etc/skel/.config/
+  loop:
+    - alacritty.yml
+    - gammastep.conf

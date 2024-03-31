@@ -2,4 +2,4 @@
 
 - name: Set hostname
   hostname:
-    name: coral
+    name: Coral
