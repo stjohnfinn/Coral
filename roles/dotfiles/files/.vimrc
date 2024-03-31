@@ -13,8 +13,6 @@ set so=7
 let $LANG='en'
 set langmenu=en
 
-set cursorline
-
 set ruler
 set cmdheight=1
 set hid
