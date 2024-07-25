@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder ".", "/vagrant", disabled: false
 
   config.vm.provider :virtualbox do |vb|
-    vb.gui = true
+    vb.gui = false
     vb.linked_clone = false
     vb.cpus = 2
     vb.memory = 2048
