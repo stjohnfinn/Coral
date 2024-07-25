@@ -27,6 +27,7 @@
       - task
       - gnome-extensions-app
       - rubygem-sass
+      - nodejs
 
 - name: Remove packages ion fw
   dnf:
