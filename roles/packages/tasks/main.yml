@@ -26,6 +26,7 @@
       - alacritty
       - task
       - gnome-extensions-app
+      - rubygem-sass
 
 - name: Remove packages ion fw
   dnf:
