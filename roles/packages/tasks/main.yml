@@ -28,6 +28,25 @@
       - gnome-extensions-app
       - rubygem-sass
       - nodejs
+      - arp-scan
+      - kubectl
+      - dnf-plugins-core
+      - vagrant
+      - codium
+      - zsh
+      - wget
+      - sqlite3
+
+- name: Install minikube
+  block:
+    - get_url:
+        url: https://storage.googleapis.com/minikube/releases/latest/minikube-latest.x86_64.rpm
+        dest: /tmp/
+        mode: 0644
+    - dnf:
+        name: /tmp/minikube-latest.x86_64.rpm
+        state: present
+        disable_gpg_check: true
 
 - name: Remove packages ion fw
   dnf:

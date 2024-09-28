@@ -8,6 +8,7 @@
     - .bashrc
     - .inputrc
     - .vimrc
+    - .zshrc
 
 - name: Install XDG_CONFIG_DIR files or whatever 
   copy:

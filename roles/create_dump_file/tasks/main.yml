@@ -1,0 +1,19 @@
+---
+
+- name: Get status on any existing dump file
+  stat:
+    path: "{{ dump_file }}"
+  register: dump_file_stat
+  
+- name: Backup the current dump file
+  copy:
+    src: "{{ dump_file }}"
+    dest: "{{ dump_file }}.bak"
+    remote_src: yes
+  when: dump_file_stat.stat.exists is true
+
+- name: Create the dump file
+  copy:
+    src: dump_file.md
+    dest: "{{ dump_file }}"
+    mode: 0777

@@ -20,15 +20,9 @@
           - cairo-devel
           - pkg-config
           - python3-devel
-    - name: Install dconf module Python libraries
-      pip:
-        name:
-          - psutil
-          - pycairo
-          # - PyGObject
-    # TODO: fix this
-    # - name: Activate the theme
-    #   dconf:
-    #     key: "/org/gnome/desktop/interface/cursor-theme"
-    #     value: "a"
-    #     state: present
+    # - name: Install dconf Python packages
+    #   pip:
+    #     name:
+    #       - psutil
+    #       - pycairo
+    #       - PyGObject

@@ -2,11 +2,26 @@
 
 - hosts: all
   become: yes
+  vars:
+    # the "dump file", as I'm calling it, is a file that I will tell the 
+    # user to read at the end of the ansible execution which contains any
+    # information that the user should be aware of after all ansible has 
+    # finished
+    dump_file: /tmp/ansible_message_dump.md
   roles:
-    - hostname
-    - repositories
-    - dotfiles
-    - packages
-    - python
+    - create_dump_file
+    # - hostname
+    # - rpm_repositories
+    # - dotfiles
+    # - packages
+    - ohmyzsh
+    # - python
+    # - appearance
     - user
-    - desktop 
+  post_tasks:
+    - name: Output final message
+      # that is a pipe btw, some themes make it italicized and it looks like
+      # a slash
+      debug:
+        # Todo: implement all of these for real!!
+        msg: Go read {{ dump_file }} immediately! [ codium {{ dump_file }} ]
