@@ -25,13 +25,21 @@ I guess I'm okay with that.
 
 Anyways, to run it against the local system, you can use:
 
-    ansible-playbook ./playbook.yml --ask-become-pass
+    ansible-playbook ./playbook.yml --ask-become-pass -i ./inventory.yml
 
-It will prompt you for the root password, which you should know because you just 
-installed Fedora and set root password. Additionally, this method assumes you are running
-it against localhost, but maybe that's not the case. It's probably easier and more 
-Ansible-ic to run it from a controller node that isn't localhost. Eventually, there will
-be a way to do this easily.
+It will prompt you for the root (or equivalent privileged account) password, 
+which you should know because you just installed Fedora and set root password. 
+Additionally, this method assumes you are running it against localhost, but 
+maybe that's not the case. It's probably easier and more Ansible-ic to run it 
+from a controller node that isn't localhost. The inventory file `inventory.yml` 
+makes this easy.
+
+**Warning**: there are requirements for the target system. Obviously, the 
+Ansible must be executed by a user with elevated permissions. In the Vagrant VM,
+this is the `vagrant` user. In a real system, I'd rather not create a `vagrant`
+user just for that purpose. Instead, you can either just create your personal 
+account, which is probably named `finn`, or you can create a housekeeping 
+account like `maintenance` or `installer`. 
 
 ## Notes
 

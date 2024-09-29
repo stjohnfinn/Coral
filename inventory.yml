@@ -1,0 +1,5 @@
+coral:
+  hosts:
+    # This IP is obviously invalid. It must be replaced for actual deployment.
+    192.168.X.X
+      ansible_user: ... # username here

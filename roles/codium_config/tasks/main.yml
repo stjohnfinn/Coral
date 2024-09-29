@@ -17,6 +17,7 @@
     - ms-python.debugpy
     - ritwickdey.liveserver
     - ms-python.python
+    - timonwong.shellcheck
 
 - name: Install configuration files
   copy:
