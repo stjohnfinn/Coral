@@ -29,7 +29,7 @@ files=(
   "$HOME/.vimrc roles/dotfiles/files/.vimrc"
   "$HOME/.zshrc roles/dotfiles/files/.zshrc"
 
-  "$HOME/.config/alacritty.yml roles/dotfiles/files/alacritty.yml"
+  "$HOME/.config/alacritty.toml roles/dotfiles/files/alacritty.toml"
   # "$HOME/.config/gammastep.conf roles/dotfiles/files/gammastep.conf"
 )
 

@@ -15,5 +15,5 @@
     src: "{{ item }}"
     dest: /home/{{ username }}/.config/
   loop:
-    - alacritty.yml
+    - alacritty.toml
     - gammastep.conf
