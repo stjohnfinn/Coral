@@ -1,0 +1,27 @@
+---
+
+# - name: install vscode extensions
+#   become_user: "{{ username }}"
+#   command: codium --install-extension {{ item }}
+#   loop:
+#     - whizkydee.material-palenight-theme
+#     - ms-python.debugpy
+#     - ritwickdey.liveserver
+#     - ms-python.python
+- name: install vscode extensions
+  become: yes
+  become_user: root
+  command: codium --install-extension {{ item }} --user-data-dir /home/{{ username }}/.VSCodium/
+  loop:
+    - whizkydee.material-palenight-theme
+    - ms-python.debugpy
+    - ritwickdey.liveserver
+    - ms-python.python
+
+- name: Install configuration files
+  copy:
+    src: "{{ item }}"
+    dest: /home/{{ username }}/.config/VSCodium/User/
+  loop:
+    - settings.json
+    - keybindings.json

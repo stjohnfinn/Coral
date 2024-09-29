@@ -1,0 +1,14 @@
+{
+    "workbench.colorTheme": "Palenight Italic",
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "editor.indentSize": "tabSize",
+    "editor.tabSize": 2,
+    "files.exclude": {
+        "**/.git": false,
+        "**/.svn": false
+    },
+    "editor.rulers": [
+        80
+    ]
+}

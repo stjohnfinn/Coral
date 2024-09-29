@@ -2,11 +2,51 @@
 
 - hosts: all
   become: yes
+  vars:
+    # the "dump file", as I'm calling it, is a file that I will tell the 
+    # user to read at the end of the ansible execution which contains any
+    # information that the user should be aware of after all ansible has
+    # finished
+    dump_file: /tmp/ansible_message_dump.md
+    dump_file_content:
+      - "# Ansible Dump File"
+      - This file was created when you ran the Coral ansible on this machine.
+      - The following information is stuff I thought you should be aware of after Ansible finishes executing.
+      - "**Read through the entire thing**."
+    username: finn
+    password: crest108dark360
+    fullname: Finn St John
   roles:
     - hostname
-    - repositories
-    - dotfiles
+    - rpm_repositories
     - packages
+    - ohmyzsh
     - python
+    - appearance
     - user
-    - desktop 
+    - dotfiles
+    - codium_config
+    - firefox
+
+  post_tasks:
+    - name: Get status on any existing dump file
+      stat:
+        path: "{{ dump_file }}"
+      register: dump_file_stat
+      
+    - name: Backup the current dump file
+      copy:
+        src: "{{ dump_file }}"
+        dest: "{{ dump_file }}.bak"
+        remote_src: yes
+      when: dump_file_stat.stat.exists is true
+
+    - name: Create the dump file
+      copy:
+        dest: "{{ dump_file }}"
+        content: "{{ dump_file_content | join('\n')}}"
+        
+    - name: Output final message
+      debug:
+        # Todo: implement all of these for real!!
+        msg: Go read {{ dump_file }} immediately! [ codium {{ dump_file }} ]

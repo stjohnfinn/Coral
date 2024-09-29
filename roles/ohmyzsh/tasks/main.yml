@@ -1,0 +1,9 @@
+---
+
+# TODO: fix this
+# - name: Install OhMyZsh with their script
+#   command: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+- name: add message to dump file
+  set_fact:
+    dump_file_content: "{{ dump_file_content + ['* **Install OhMyZsh with the following command** ----- sh -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" \"\" --unattended'] }}"

@@ -18,3 +18,14 @@
     - copy:
         src: vscodium.repo
         dest: /etc/yum.repos.d/
+
+- name: Install Kubernetes repo
+  copy:
+    src: kubernetes.repo
+    dest: /etc/yum.repos.d/
+
+- name: Install Vagrant repo
+  get_url:
+    url: https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+    dest: /etc/yum.repos.d/hashicorp.repo
+    mode: 0644
