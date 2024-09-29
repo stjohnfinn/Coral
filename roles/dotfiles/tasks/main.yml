@@ -3,7 +3,7 @@
 - name: Install home directory configuration files
   copy:
     src: "{{ item }}"
-    dest: /etc/skel
+    dest: /home/{{ username }}
   loop:
     - .bashrc
     - .inputrc
@@ -13,7 +13,7 @@
 - name: Install XDG_CONFIG_DIR files or whatever 
   copy:
     src: "{{ item }}"
-    dest: /etc/skel/.config/
+    dest: /home/{{ username }}/.config/
   loop:
     - alacritty.yml
     - gammastep.conf

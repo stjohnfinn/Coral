@@ -5,6 +5,5 @@
 #   command: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 - name: add message to dump file
-  lineinfile: 
-    line: '* **Install OhMyZsh with the following command** ----- sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended\n'
-    path: "{{ dump_file }}"
+  set_fact:
+    dump_file_content: "{{ dump_file_content + ['* **Install OhMyZsh with the following command** ----- sh -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" \"\" --unattended'] }}"

@@ -36,6 +36,8 @@
       - zsh
       - wget
       - sqlite3
+      - acl
+      - yq
 
 - name: Install minikube
   block:

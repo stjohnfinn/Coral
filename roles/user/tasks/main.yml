@@ -7,14 +7,14 @@
 - name: Add my user
   user:
     name: "{{ username }}"
-    password: "{{ 'crest108dark360' | password_hash }}"
-    comment: Finn St John
+    password: "{{ password | password_hash }}"
+    comment: "{{ fullname }}"
     state: present
     shell: /usr/bin/zsh
 - name: Allow passwordless sudo
-  copy:
-    src: "{{ username }}"
-    dest: /etc/sudoers.d/
+  template:
+    src: sudoers
+    dest: /etc/sudoers.d/{{ username }}
 - name: Wallpaper
   block:
     - name: Create wallpapers directory
@@ -31,15 +31,13 @@
     #     key: /org/gnome/desktop/background/picture-uri
     #     value: /home/{{ username }}/Pictures/wallpaper.png
     - name: Add wallpaper message to dump file
-      lineinfile:
-        line: '* **Set the wallpaper** ---- gsettings set org.gnome.desktop.background picture-uri "~/Pictures/wallpaper.png"\n'
-        path: "{{ dump_file }}"
+      set_fact:
+        dump_file_content: "{{ dump_file_content + ['* **Set the wallpaper** ---- gsettings set org.gnome.desktop.background picture-uri \"~/Pictures/wallpaper.png\"'] }}"
 # TODO: implement this for real also
 # - name: Set cursor theme
 #   dconf:
 #     key: /org/gnome/desktop/interface/cursor-theme
 #     value: macOS-BigSur
 - name: Add cursor theme message to dump file
-  lineinfile:
-    line: '* **Set the cursor theme** ---- gsettings set org.gnome.desktop.interface cursor-theme "macOS-BigSur"\n'
-    path: "{{ dump_file }}"
+  set_fact:
+    dump_file_content: "{{ dump_file_content + ['* **Set the cursor theme** ---- gsettings set org.gnome.desktop.interface cursor-theme \"macOS-BigSur\"'] }}"
