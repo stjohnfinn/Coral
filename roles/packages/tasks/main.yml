@@ -9,6 +9,7 @@
   dnf:
     state: present
     name:
+      - google-noto*
       - bat
       - htop
       - NetworkManager
