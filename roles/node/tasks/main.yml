@@ -4,6 +4,11 @@
   dnf:
     name: nodejs
 
-# NEVER install things globally here, I did this once, but I think it's cleaner
-# to just use `npx <command>`, which can be run without installing the global
-# package.
+- name: Add NPM configuration file
+  template:
+    src: npmrc
+    dest: /home/{{ username }}/
+
+- name: Install global NPM packages
+
+

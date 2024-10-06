@@ -5,10 +5,17 @@
     src: "{{ item }}"
     dest: /home/{{ username }}
   loop:
-    - .bashrc
     - .inputrc
     - .vimrc
-    - .zshrc
+
+- name: Template home directory configuration files, if applicable
+  block:
+    - template:
+        src: .bashrc.j2
+        dest: /home/{{ username }}/.bashrc
+    - template:
+        src: .zshrc.j2
+        dest: /home/{{ username }}/.zshrc
 
 - name: Install XDG_CONFIG_DIR files or whatever 
   copy:

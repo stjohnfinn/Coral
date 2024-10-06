@@ -1,0 +1,2 @@
+prefix=/home/{{ username }}/{{ npm_global_install_path }}
+python=/usr/bin/python3

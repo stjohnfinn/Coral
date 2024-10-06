@@ -16,6 +16,8 @@
     username: finn
     password: crest108dark360
     fullname: Finn St John
+    # omits the /home/<username>/
+    npm_global_install_path: .npm-global
   roles:
     - hostname
     - rpm_repositories
@@ -27,6 +29,7 @@
     - dotfiles
     - codium_config
     - firefox_config
+    - node
 
   post_tasks:
     - name: Get status on any existing dump file
