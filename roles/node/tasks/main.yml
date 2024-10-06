@@ -4,9 +4,6 @@
   dnf:
     name: nodejs
 
-- name: Install global NPM packages
-  npm:
-    name: typescript
-    global: true
-    state: latest
-
+# NEVER install things globally here, I did this once, but I think it's cleaner
+# to just use `npx <command>`, which can be run without installing the global
+# package.
