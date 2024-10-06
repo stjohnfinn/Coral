@@ -7,7 +7,7 @@
 
 - name: Install packages i fw
   dnf:
-    state: present
+    state: latest
     name:
       - google-noto*
       - bat
@@ -28,7 +28,6 @@
       - task
       - gnome-extensions-app
       - rubygem-sass
-      - nodejs
       - arp-scan
       - kubectl
       - dnf-plugins-core
@@ -39,6 +38,7 @@
       - sqlite3
       - acl
       - yq
+      - nautilus
 
 - name: Install minikube
   block:

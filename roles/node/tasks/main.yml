@@ -1,0 +1,12 @@
+---
+
+- name: Install Node and NPM
+  dnf:
+    name: nodejs
+
+- name: Install global NPM packages
+  npm:
+    name: typescript
+    global: true
+    state: latest
+
