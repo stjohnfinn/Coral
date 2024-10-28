@@ -18,6 +18,9 @@
     - ritwickdey.liveserver
     - ms-python.python
     - timonwong.shellcheck
+    - esbenp.prettier-vscode
+    - Syler.sass-indented
+    - PKief.material-icon-theme
 
 - name: Install configuration files
   copy:
