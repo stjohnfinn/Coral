@@ -10,5 +10,13 @@
     },
     "editor.rulers": [
         80
-    ]
+    ],
+    "yaml.customTags": [
+        "!reference sequence"
+    ],
+    "files.associations": {
+        "*.pkr.hcl": "terraform",
+        "*.hcl": "terraform",
+        "*Vagrantfile": "ruby"
+    }
 }

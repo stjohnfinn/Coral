@@ -70,5 +70,9 @@
         "key": "shift+alt+up",
         "command": "-notebook.cell.copyUp",
         "when": "notebookEditorFocused && !inputFocus"
+    },
+    {
+        "key": "ctrl+shift+g ctrl+shift+f",
+        "command": "git.fetch"
     }
 ]
