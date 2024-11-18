@@ -21,6 +21,7 @@
     - esbenp.prettier-vscode
     - Syler.sass-indented
     - PKief.material-icon-theme
+    - HashiCorp.terraform
 
 - name: Install configuration files
   copy:
