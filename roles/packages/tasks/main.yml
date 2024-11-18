@@ -9,7 +9,6 @@
   dnf:
     state: latest
     name:
-      - google-noto*
       - bat
       - htop
       - NetworkManager
@@ -39,6 +38,13 @@
       - acl
       - yq
       - nautilus
+
+- name: install google fonts
+  dnf:
+    state: latest
+    name:
+      - google-noto*
+    skip_broken: true
 
 - name: Install minikube
   block:

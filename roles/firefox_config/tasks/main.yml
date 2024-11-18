@@ -2,7 +2,7 @@
 
 - name: Add sign in to firefox message
   set_fact:
-    dump_file_content: "{{ dump_file_content + ['* Remember to sign into firefox! (main gmail account and <password>)'] }}"
+    dump_file_content: "{{ dump_file_content + ['* Remember to sign into firefox!'] }}"
 
 - name: Add firefox extensions message
   set_fact:

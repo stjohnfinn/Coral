@@ -3,3 +3,4 @@
 dependencies:
   - packages
   - user
+  - dotfiles
