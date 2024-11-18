@@ -14,10 +14,14 @@
       - The following information is stuff I thought you should be aware of after Ansible finishes executing.
       - "**Read through the entire thing**."
     username: finn
-    password: crest108dark360
     fullname: Finn St John
     # omits the /home/<username>/
     npm_global_install_path: .npm-global
+  vars_prompt:
+    - name: password
+      prompt: Enter a username for the main user account
+      private: true
+      default: "mypw"
   roles:
     - hostname
     - rpm_repositories

@@ -6,9 +6,18 @@
 
 - name: Add NPM configuration file
   template:
-    src: npmrc
-    dest: /home/{{ username }}/
+    src: .npmrc.j2
+    dest: /home/{{ username }}/.npmrc
 
 - name: Install global NPM packages
+  npm:
+    name: "{{ item }}"
+    global: true
+    path: /home/{{ username }}/{{ npm_global_install_path }}
+  loop:
+    - typescript
 
-
+- name: Add npm global bin to path
+  lineinfile:
+    line: export PATH=$PATH:$HOME/{{ npm_global_install_path }}/bin
+    path: /home/{{ username }}/.zshrc
