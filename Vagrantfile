@@ -27,6 +27,15 @@ Vagrant.configure("2") do |config|
     vb.memory = 2048
   end
 
+  
+  # Install Gnome desktop because the Vagrant box doesn't come with one.
+  config.vm.provision "shell",
+    inline: "sudo dnf groupinstall \"Server with GUI\""
+  config.vm.provision "shell",
+    inline: "sudo systemctl set-default graphical.target"
+  config.vm.provision "shell",
+    inline: "sudo reboot"
+
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "playbook.yml"
   end
