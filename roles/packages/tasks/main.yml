@@ -38,6 +38,7 @@
       - acl
       - yq
       - nautilus
+      - firefox
 
 - name: install google fonts
   dnf:

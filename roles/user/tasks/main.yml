@@ -32,7 +32,7 @@
     #     value: /home/{{ username }}/Pictures/wallpaper.png
     - name: Add wallpaper message to dump file
       set_fact:
-        dump_file_content: "{{ dump_file_content + ['* **Set the wallpaper** ---- gsettings set org.gnome.desktop.background picture-uri \"~/Pictures/wallpaper.png\"'] }}"
+        dump_file_content: "{{ dump_file_content + ['* **Set the wallpaper** ---- gsettings set org.gnome.desktop.background picture-uri \"file:///home/{{ username }}/Pictures/wallpaper.png\"'] }}"
 # TODO: implement this for real also
 # - name: Set cursor theme
 #   dconf:
@@ -41,3 +41,6 @@
 - name: Add cursor theme message to dump file
   set_fact:
     dump_file_content: "{{ dump_file_content + ['* **Set the cursor theme** ---- gsettings set org.gnome.desktop.interface cursor-theme \"macOS-BigSur\"'] }}"
+- name: Add dark mode message to dump file
+  set_fact:
+    dump_file_content: "{{ dump_file_content + ['* **Enable dark mode** ---- gsettings set org.gnome.desktop.interface color-scheme prefer-dark'] }}"
