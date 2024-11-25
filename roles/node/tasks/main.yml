@@ -5,13 +5,11 @@
     name: nodejs
 
 - name: Add NPM configuration file
-  become_user: "{{ username }}"
   template:
     src: .npmrc.j2
     dest: /home/{{ username }}/.npmrc
 
 - name: Install global NPM packages
-  become_user: "{{ username }}"
   npm:
     name: "{{ item }}"
     global: true
@@ -20,7 +18,6 @@
     - typescript
 
 - name: Add npm global bin to path
-  become_user: "{{ username }}"
   lineinfile:
     line: export PATH=$PATH:$HOME/{{ npm_global_install_path }}/bin
     path: /home/{{ username }}/.zshrc

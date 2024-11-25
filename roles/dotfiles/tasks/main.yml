@@ -1,7 +1,6 @@
 ---
 
 - name: Install home directory configuration files
-  become_user: "{{ username }}"
   copy:
     src: "{{ item }}"
     dest: /home/{{ username }}
@@ -11,7 +10,6 @@
     - .gitconfig
 
 - name: Template home directory configuration files, if applicable
-  become_user: "{{ username }}"
   block:
     - template:
         src: .bashrc.j2
@@ -21,7 +19,6 @@
         dest: /home/{{ username }}/.zshrc
 
 - name: Install XDG_CONFIG_DIR files or whatever
-  become_user: "{{ username }}"
   copy:
     src: "{{ item }}"
     dest: /home/{{ username }}/.config/
