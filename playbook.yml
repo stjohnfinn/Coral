@@ -51,9 +51,14 @@
     - name: Create the dump file
       copy:
         dest: "{{ dump_file }}"
-        content: "{{ dump_file_content | join('\n')}}"
+        content: "{{ dump_file_content | join('\n')}}\n"
         
     - name: Output final message
       debug:
         # Todo: implement all of these for real!!
         msg: Go read {{ dump_file }} immediately! [ codium {{ dump_file }} ]
+
+    - name: Output dump file contents as well
+      debug:
+        msg: "{{ item }}"
+      loop: dump_file_content
