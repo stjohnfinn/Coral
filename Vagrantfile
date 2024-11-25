@@ -21,13 +21,19 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder ".", "/vagrant", disabled: false
 
   config.vm.provider :virtualbox do |vb|
-    vb.gui = false
+    vb.gui = true
     vb.linked_clone = false
-    vb.cpus = 2
+    vb.cpus = 4
     vb.memory = 2048
   end
 
+  # Will only make changes if it hasn't already been executed, hacky idempotent
+  config.vm.provision "shell", path: "install_gui.sh"
+    
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "playbook.yml"
   end
+
+  config.vm.provision "shell",
+    inline: "sudo reboot"
 end

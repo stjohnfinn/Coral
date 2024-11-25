@@ -7,6 +7,7 @@
   loop:
     - .inputrc
     - .vimrc
+    - .gitconfig
 
 - name: Template home directory configuration files, if applicable
   block:
@@ -17,7 +18,7 @@
         src: .zshrc.j2
         dest: /home/{{ username }}/.zshrc
 
-- name: Install XDG_CONFIG_DIR files or whatever 
+- name: Install XDG_CONFIG_DIR files or whatever
   copy:
     src: "{{ item }}"
     dest: /home/{{ username }}/.config/

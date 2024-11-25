@@ -1,0 +1,21 @@
+[user]
+	email = stjohn.finn@gmail.com
+	name = Finn St John
+
+[core]
+	editor = vim
+	pager = less
+
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	cm = commit
+	lg = log --oneline --graph --decorate
+
+[pull]
+	rebase = true
+
+[color]
+	ui = auto
+	

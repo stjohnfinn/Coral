@@ -34,8 +34,15 @@
     - codium_config
     - firefox_config
     - node
-
   post_tasks:
+    - name: change ownership of user home
+      file:
+        state: directory
+        path: /home/{{ username }}/
+        owner: "{{ username }}"
+        group: "{{ username }}"
+        recurse: yes
+
     - name: Get status on any existing dump file
       stat:
         path: "{{ dump_file }}"
@@ -51,9 +58,13 @@
     - name: Create the dump file
       copy:
         dest: "{{ dump_file }}"
-        content: "{{ dump_file_content | join('\n')}}"
+        content: "{{ dump_file_content | join('\n')}}\n"
         
     - name: Output final message
       debug:
         # Todo: implement all of these for real!!
         msg: Go read {{ dump_file }} immediately! [ codium {{ dump_file }} ]
+    
+    - name: Output dump file contents as well
+      debug:
+        var: dump_file_content

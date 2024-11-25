@@ -7,3 +7,8 @@
 - name: Add firefox extensions message
   set_fact:
     dump_file_content: "{{ dump_file_content + ['* Remember to install these **Firefox** extensions: GNOME Shell Integration'] }}"
+
+- name: Install user preferences file
+  copy:
+    src: user.js
+    dest: home/{{ username }}/.mozilla/
