@@ -9,6 +9,7 @@
 #     - ritwickdey.liveserver
 #     - ms-python.python
 - name: install vscode extensions
+  become_user: "{{ username }}"
   become: yes
   become_user: root
   command: codium --install-extension {{ item }} --user-data-dir /home/{{ username }}/.VSCodium/
@@ -24,6 +25,7 @@
     - HashiCorp.terraform
 
 - name: Install configuration files
+  become_user: "{{ username }}"
   copy:
     src: "{{ item }}"
     dest: /home/{{ username }}/.config/VSCodium/User/
