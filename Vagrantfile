@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
 
-  config.vm.box = "fedora/39-cloud-base"
+  config.vm.box = "bento/fedora-40"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
