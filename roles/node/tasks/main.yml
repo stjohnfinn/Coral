@@ -16,6 +16,7 @@
     path: /home/{{ username }}/{{ npm_global_install_path }}
   loop:
     - typescript
+    - firebase-tools
 
 - name: Add npm global bin to path
   lineinfile:
