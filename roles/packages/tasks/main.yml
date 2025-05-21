@@ -41,6 +41,7 @@
       - firefox
       - podman
       - podman-compose
+      - zig
 
 - name: install google fonts
   dnf:
