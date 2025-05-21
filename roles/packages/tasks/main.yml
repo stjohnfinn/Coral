@@ -39,6 +39,8 @@
       - yq
       - nautilus
       - firefox
+      - podman
+      - podman-compose
 
 - name: install google fonts
   dnf:
