@@ -1,0 +1,12 @@
+---
+
+- name: Install flatpak
+  dnf:
+    name: flatpak
+    state: latest
+
+- name: Add flathub repository
+  flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo

@@ -3,6 +3,18 @@
 This repository stores all of the ansible necessary to provision a Fedora installation 
 to fit my standards and preferences.
 
+## Features
+
+- System package installation and configuration
+- Flatpak setup with common applications (Firefox, LibreOffice, GIMP, VLC, Spotify, Discord, etc.)
+- Oh My Zsh shell configuration
+- Python development environment
+- Node.js development environment
+- VSCodium configuration
+- Firefox configuration
+- User account and dotfiles setup
+- System appearance customization
+
 ## How to use
 
 ### Testing

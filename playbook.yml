@@ -1,7 +1,7 @@
 ---
 
 - hosts: all
-  become: yes
+  become: true
   vars:
     # the "dump file", as I'm calling it, is a file that I will tell the 
     # user to read at the end of the ansible execution which contains any
@@ -26,6 +26,7 @@
     - hostname
     - rpm_repositories
     - packages
+    - flatpak
     - ohmyzsh
     - python
     - appearance
@@ -41,7 +42,7 @@
         path: /home/{{ username }}/
         owner: "{{ username }}"
         group: "{{ username }}"
-        recurse: yes
+        recurse: true
 
     - name: Get status on any existing dump file
       stat:
@@ -52,7 +53,7 @@
       copy:
         src: "{{ dump_file }}"
         dest: "{{ dump_file }}.bak"
-        remote_src: yes
+        remote_src: true
       when: dump_file_stat.stat.exists is true
 
     - name: Create the dump file
