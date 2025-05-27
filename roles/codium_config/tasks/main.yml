@@ -22,6 +22,7 @@
     - Syler.sass-indented
     - PKief.material-icon-theme
     - HashiCorp.terraform
+    - ziglang.vscode-zig
 
 - name: Install configuration files
   copy:
